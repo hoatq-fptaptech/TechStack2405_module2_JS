@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính chu vi và diện tích tam giác</h1>
+    <script type="text/javascript">
+        var hoanthanh = false;
+        while(hoanthanh != true){ // loop
+            var canh1 = prompt("Nhập cạnh thứ nhất:");
+            canh1 = parseFloat(canh1);
+            var canh2 = prompt("Nhập cạnh thứ 2:");
+            canh2 = parseFloat(canh2);
+            var canh3 = prompt('Nhập "" cạnh thứ 3:');
+            canh3 = parseFloat(canh3);
+
+            if(canh1 + canh2 > canh3 && canh1 + canh2 > canh3 && canh2 + canh3 > canh1){
+                // nếu đúng thì làm gì?
+                var p = canh1 + canh2 + canh3;
+                alert(`Chu vi tam giác: ${p}`);
+                var p2 = p/2; // nửa chu vi
+                var s = Math.sqrt(p2 * (p2 - canh1) * (p2 - canh2) * (p2 - canh3));
+                alert(`Diện tích tam giác: ${s}`);
+                hoanthanh = true;
+
+            }else{
+                // nếu sai thì làm gì?
+                alert("Đây không phải là độ dài 3 cạnh tam giác!");
+                var check = confirm("Bạn có muốn nhập lại hay không?"); // true false
+                if(check == true){
+                    hoanthanh = false;
+                }else{
+                    hoanthanh = true;
+                }
+            }
+        }
+        alert("Kết thúc chương trình!");
+        // prompt("What's your name?")
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tinh lai suat ngan hang</h1>
+    <script type="text/javascript">
+        
+        // viết chương trình tính lãi suất ngân hàng
+        // Input: khách hàng nhập vào số tiền muốn gửi và số năm muốn gửi
+        // process:  Lãi suất cố định 8%/năm -- Lãi kép (lãi cộng dồn vào gốc)
+        // Output: tính tổng số tiền khách thu về sau khi gửi tiết kiệm
+         
+        var sotien = prompt("Nhap so tien muon gui tiet kiem:");
+        sotien = parseInt(sotien);
+        var sonam = prompt("Nhap so nam muon gui:");
+        sonam = parseInt(sonam);
+
+        var year = 0;
+        while(year < sonam){
+            sotien = sotien + sotien * 8 / 100;
+            year++;
+        }
+        alert(`So tien thu duoc: ${sotien}`);
+
+        // viết chương trình tính số năm cần gửi:
+        // Input: KH nhập số tiền muốn gửi và số tiền ít nhất muốn có
+        // process: :Lãi suất cố định: 8%/ năm và Lãi kép
+        // Output: Tính số năm tối thiểu cần gửi để đạt được số tiền yêu cầu như trên
+        var sotien = prompt("Nhap so tien muon gui tiet kiem:");
+        sotien = parseInt(sotien);
+        var mongmuon = prompt("Nhap so tien muon nhan ve:");
+        mongmuon = parseInt(mongmuon);
+
+        var year = 0;
+        while(sotien < mongmuon){
+            sotien = sotien + sotien * 8 / 100;
+            year++;
+        }
+        alert(`So nam can gui: ${year}`);
+    </script>
+</body>
+</html>

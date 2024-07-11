@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fibonaci</h1>
+    <script type="text/javascript">
+        // Nhập 1 số nguyên n
+        // Tìm số ở vị trí thứ n trong dãy Fibonaci
+        // Ví dụ:
+        // 0  1  1  2  3  5   8   13  21 ....
+        // f0 f1 f2 f3 f4 f5  f6  f7  f8 ....
+        /// nhaapj vào số 6 -> báo kết quả là 8
+        // var n = prompt("Nhap n =");
+        // n = parseInt(n);
+        // var f1 = 0;
+        // var f2 = 1;
+        // var f3 = 1;
+        // for(var i=3;i<=n;i++){
+        //     f1 = f2;
+        //     f2 = f3;
+        //     f3 = f1 + f2;
+        // }
+        // alert(`Số cần tìm: ${f3}`);
+        // Advance
+        // Vẫn la dãy Fiobonaci nhưng nhâp vào 1 số nguyên n
+        // tìm số cận dưới của n mà thuộc dãy fibonaci
+        var n = prompt("Nhap n =");
+        n = parseInt(n);
+        var f1 = 0;
+        var f2 = 1;
+        var f3 = 1;
+        // while(f2+f3 <= n){
+        for( ; f2 + f3 <=n; ){
+            f1 = f2;
+            f2 = f3;
+            f3 = f1 + f2;
+        }
+        alert(`Số cần tìm: ${f3}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tinh tong</h1>
+    <script type="text/javascript">
+        // Nhap so nguyen n
+        // tinh S = 1 + 2 + 3 + ...  + n (theo cach su dung Loop) 1 + 2 + 3 + 4 = 10
+        var n = prompt("Nhap n=");
+        n = parseInt(n);
+        var s = 0;
+        // while loop
+        // var i = 1;
+        // while(i <= n){
+        //     s = s+i;
+        //     i++;
+        // }
+
+        // for loop
+        for(var i=1; i<=n ; i++){
+            s = s + i;
+        }
+
+        alert(`S= ${s}`);
+    </script>
+</body>
+</html>

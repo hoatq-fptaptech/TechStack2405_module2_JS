@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array Demo</h1>
+    <script type="text/javascript">
+        var ts2405 = [];// 1 array
+        var arr1 = [1,3,31,30,29,"Hello",true];
+        var arr2= [1,3,5,7,9,11]; // 0 1 2 3 4 5 
+       // alert(arr2[2]);
+
+       arr2[2] = 199;// [1,3,199,7,9,11] 
+
+       //alert(arr2.length); /// vị trí: 0, 1, 2, 3 .... (length-1)
+       
+       // Duyet mang
+       var s =0;
+    //    for(var i=0;i < arr2.length;i++){ // có thể kiểm soát được số lượng thực hiện theo điều kiện
+    //        // console.log(arr2[i]);
+    //        s = s + arr2[i];
+    //    }
+        for(var x of arr2){ // kiểu này sẽ chạy hết tất cả các phần tử của mảng, để lấy giá trị ra sử dụng
+            s = s + x;  // x tương đương với arr2[i] ở kiểu viết trên
+        }
+       // tính trung bình cộng giá trị của mảng
+       alert(`TBC: ${s/arr2.length}`);
+
+       for(var i =0 ;i < arr2.length;i++){ // có thể thay đôi giá trị của phần tử trong mảng được
+            arr2[i] = i * i +2 ;
+       }
+
+       // cho mảng 
+       var numbers  = [];
+       var n = prompt("Số lượng số cần nhập vào:");
+       n = parseInt(n);
+       while(numbers.length < n){
+            var num = prompt("nhap gia tri:");
+            num = parseInt(num);
+            numbers.push(num);// cho giá trị num vào mảng numbers
+       }
+       // Tìm số lớn nhất - nhỏ nhất trong mảng numbers
+       var max = numbers[0];
+       for(var x of numbers){
+            if(x > max){
+                max = x;
+            }
+       }
+       alert(`So lon nhat: ${max}`);
+       // advance - mảng numbers là do người dùng nhập giá trị
+    </script>
+</body>
+</html>

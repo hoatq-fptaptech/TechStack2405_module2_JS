@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lô tô</h1>
+    <script type="text/javascript">
+        // Tạo ngẫu nhiên 1 mảng có 23 giá trị (tương đương 23 giải) 0 -> 99
+        // yeu cầu người chơi nhập vào con số lựa chọn
+        // yêu cầu người chơi đặt cược số tiền
+        // kiểm tra và thông báo số tiền nhận được
+        // tỉ lệ: 23k -> 80k (nếu trúng 1 số)
+        var rds = [];
+        while(rds.length < 23){
+            var r = parseInt(Math.random() * 100);
+            rds.push(r);
+        }
+        var num = prompt("Nhap con so lua chon:");
+        num = parseInt(num);
+        var money = prompt("So tien muon dat cuoc:");
+        money = parseInt(money);
+        var count = 0;
+        for(var n of rds){
+            if(n == num){
+                count++;
+            }
+        }
+        alert(`Số tiền nhận về sau 18h30: ${money * 80 / 23 * count}`);
+        // mở rộng: người chơi mua 5 số khác nhau -> kiểm tra giải 1 lần
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>FUNCTION DEMO 2</h1>
+    <script type="text/javascript" src="js/demo.js">// ko code gì ở đây nữa</script>
+    <script type="text/javascript">
+        // LÀM THẾ NÀO ĐỂ TẠO RA 1 FUNCTION
+        // 1. Xác định function đó dùng làm gì? (chức năng của nó)
+        // 2. Input (Đầu vào có những gì?) -> Để làm chức năng này cần cung cấp thông tin gì?
+        // 3. OUTPUT: Khi làm xong báo kết quả như thế nào?
+        // 4. LOGIC: Để được từ input -> output thì cần làm các lệnh theo thứ tự như thế nào
+
+        // Ví dụ: 
+        // 1, Hàm dùng để kiemr tra một số có phải số nguyên tố hay ko?
+        // 2. INPUT: Phải cho hàm cái số mà mình muốn kiểm tra
+        // 3. OUTPUT: Báo ra màn hình xem nó có phải số nguyên tố hay là không
+        // 4. Cho vongf lặp kiểm tra từ 2 đến căn 2 của số đó, hễ mà chi hết cho 1 số bất kỳ thì không phải
+        // còn nếu mà không chia thêm được số nào nữa thì là số nguyên tố
+             
+        // songuyento(19);
+
+        // if(kiemtraSNT(21)){
+        //     alert(`Đây là số nguyên tố`);
+        // }else{
+        //     alert(`Đây ko phải là số nguyên tố`);
+        // }
+
+        // viết hàm tính chu vi và diện tích tam giác khi đã biết độ dài 3 cạnh tam giác đó
+
+        // gợi ý
+        // viết hàm thì nên phân chia 2 loại
+        // 1. Loại hiển thị -> sử dụng luôn
+        // 2. Loai tính toán
+        
+       // alert(`Chu vi tam giac voi 3 canh 4 5 6 la ${tinhchuvi(4,5,6)}`);
+
+        
+        // setTimeout(function(){
+        //     alert("Hello world!");
+        // } , 2000); // delay 2000ms
+        var x = 10;
+        
+       // delayAlert(); // thực thi hàm
+    //   setTimeout(delayAlert,2000); // sẽ thực thi hàm delayAlert sau 2000ms --> callback function
+
+   var cd = setInterval(delayAlert,1000); // sẽ thực thi hàm delayAlert cứ sau mỗi 2000ms -> lặp vĩnh viễn
+   function delayAlert(){
+           // alert("Hello world!");
+        console.log(x);
+        x--;
+        if(x < 0){
+            clearInterval(cd);
+        }
+    }
+
+    // viết chương trình đếm ngược phút : giây
+    // ví dụ: 10 phút
+    // 10:00
+    // 09:59
+    // 09:58
+    //..
+    // 00:00
+
+    // Thời gian thật
+    var d = new Date();
+    console.log(d)
+        
+    </script>
+</body>
+</html>

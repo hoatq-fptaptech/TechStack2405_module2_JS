@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div id="fan"></div>
+    <!-- <button type="button" onclick="onFan()">ON</button> -->
+    <button type="button" >OFF</button>
+    <button type="button" >1</button>
+    <button type="button" >2</button>
+    <button type="button" >3</button>
+    <script type="text/javascript">
+        var speed = 0;
+        var rotation = 0;
+        var f = setInterval(function(){
+            var fan = document.getElementById("fan");
+            fan.style.transform = `rotate(${rotation}deg)`;
+            rotation += speed;
+            // if(rotation == 360){
+            //     rotation = 0;
+            // }
+        },10);
+
+        function onFan(){
+            speed = 20;
+        }
+      ///  onFan()
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">Demo Object</h1>
+    <h2 id="countdown">10</h2>
+    <h2><span id="minute">10</span>:<span id="second">00</span></h2>
+    <script type="text/javascript">
+        // var x = 10;
+        // var s = "hello";
+        // var arr = [];
+        // var b = {
+        //     name: "Nguyễn Anh Thắng",
+        //     age: 18,
+        //     address: "Ha Noi"
+        // } // thông tin của 1 sinh viên
+        // alert(b.name);
+        // b.address = "Đà nẵng";
+        // alert(b.address);
+        // b['address'] = "Hải Phòng"
+        // alert(b['address']);
+        // alert(b);
+       // var sv = ["Nguyen Anh Thang",18,"Ha noi"];
+       // cái mà các bạn nhìn thấy về 1 đối tượng --> thực ra là chúng ta nhìn thấy các thông tin của đối tượng đó
+
+       // chuyển 1 phần tử bên html -> 1 object bên js --> muốn thay đổi viêc hiển thị phải thay đổi giá trị các thuộc tính bên trong
+
+       // 1. chuyển 1 phần tử bên html -> 1 object bên js
+        var h = document.getElementById("heading"); // h là 1 object: DOcument object model
+        // 2. thay đổi gì bên hiển thị thì tác động vào object của js
+       // h.innerText = "Xin chao cac ban";
+       h.innerHTML = "<i>XIN CHAO</i>";
+
+       // change style
+        h.style.color = "red";
+        h.style.transform = "scale(1.3)";
+        h.style.backgroundColor = "orange"
+
+        var x = 10;
+        var ncd = setInterval(delayAlert,1000); // sẽ thực thi hàm delayAlert cứ sau mỗi 2000ms -> lặp vĩnh viễn
+        function delayAlert(){
+            // alert("Hello world!");
+           // console.log(x);
+           var cd = document.getElementById('countdown');
+           cd.innerText = x;
+            x--;
+            if(x < 0){
+                clearInterval(ncd);
+            }
+        }
+
+        var min = 10;
+        var sec = 0;
+
+        var timer = setInterval(timerCountdown,1000);
+        function timerCountdown(){
+            //console.log(`${min}:${sec}`);
+            var minute = document.getElementById('minute');
+            var second = document.getElementById('second');
+            minute.innerText = min>=10 ? min: `0${min}`; // toán tử 3 ngôi
+            second.innerText = sec>=10 ? sec: `0${sec}`;
+
+            sec--;
+            if(sec < 0){
+                sec = 59;
+                min --;
+            }
+            if(min < 0){
+                clearInterval(timer);
+            }
+
+        }
+        
+    </script>
+</body>
+</html>

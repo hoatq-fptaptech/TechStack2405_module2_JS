@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 mb-5">
-                    <input class="form-control" type="text" name="search" placeholder="Search...."/>
+                    <input onkeyup="searchProduct(this)" class="form-control" type="text" name="search" placeholder="Search...."/>
                 </div>
             </div>
         </div>
@@ -85,11 +85,39 @@
             }
         })
 
-        function searchProduct(){
-            var keyword = 'phone'
-            var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+        function searchProduct(e){
+            if(event.keyCode == 13){
+                var keyword = e.value;
+                var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+                fetch(url_search).then(function(rs){
+                    return rs.json();
+                })
+                .then(function(rs){
+                    var products = rs.products;
+                    var list = document.getElementById("list-products");
+                    list.innerHTML = ``;// clear list
+                    for(var p of products){
+                        var p_html = `<div class="col-3 mb-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="${p.thumbnail}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">${p.title}</h5>
+                                <p class="card-text">${p.description}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>`;
+                        list.innerHTML += p_html;
+                    }
+                })
+            }
+            
             // xây dựng chức năng tìm kiếm sản phẩm
         }
+
+        // product of category
+     //   url = `https://dummyjson.com/products/category/beauty`;
+
     </script>
 </body>
 </html>

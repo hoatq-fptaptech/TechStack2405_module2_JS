@@ -27,6 +27,22 @@
                 <div class="col-4 mb-5">
                     <input onkeyup="searchProduct(this)" class="form-control" type="text" name="search" placeholder="Search...."/>
                 </div>
+                <div class="col-2">
+                    <label>Số lượng mỗi trang</label>
+                    <select name="limit">
+                        <option value="12">12</option>
+                        <option value="12">20</option>
+                        <option value="12">30</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label>Sắp xếp</label>
+                    <select name="sort">
+                        <option value="asc">Giá từ thấp đến cao</option>
+                        <option value="desc">Giá từ cao đến thâp</option>
+                    
+                    </select>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -117,7 +133,8 @@
 
         // product of category
      //   url = `https://dummyjson.com/products/category/beauty`;
-
+        // sort and limit
+        url3 = `https://dummyjson.com/products?q=phone&limit=12&sortBy=price&order=asc`;
     </script>
 </body>
 </html>

@@ -25,19 +25,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 mb-5">
-                    <input onkeyup="searchProduct(this)" class="form-control" type="text" name="search" placeholder="Search...."/>
+                    <input id="input-search" onkeyup="searchProduct(this)" class="form-control" type="text" name="search" placeholder="Search...."/>
                 </div>
                 <div class="col-2">
                     <label>Số lượng mỗi trang</label>
-                    <select name="limit">
+                    <select id="select-limit" name="limit" onchange="filter()">
                         <option value="12">12</option>
-                        <option value="12">20</option>
-                        <option value="12">30</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
                     </select>
                 </div>
                 <div class="col-4">
                     <label>Sắp xếp</label>
-                    <select name="sort">
+                    <select id="select-sort" name="sort" onchange="filter()">
                         <option value="asc">Giá từ thấp đến cao</option>
                         <option value="desc">Giá từ cao đến thâp</option>
                     
@@ -104,7 +104,10 @@
         function searchProduct(e){
             if(event.keyCode == 13){ // kiểm tra xem người dùng nhấn phím enter (13)
                 var keyword = e.value;
-                var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+                // var url_search = `https://dummyjson.com/products/search?q=${keyword}`;
+                var limit = document.getElementById("select-limit").value;
+                var sort = document.getElementById("select-sort").value;
+                url_search = `https://dummyjson.com/products/search?q=${keyword}&limit=${limit}&sortBy=price&order=${sort}`;
                 fetch(url_search).then(function(rs){
                     return rs.json();
                 })
@@ -134,7 +137,34 @@
         // product of category
      //   url = `https://dummyjson.com/products/category/beauty`;
         // sort and limit
-        url3 = `https://dummyjson.com/products/search?q=phone&limit=12&sortBy=price&order=asc`;
+        function filter(){
+            var search = document.getElementById("input-search").value;
+            var limit = document.getElementById("select-limit").value;
+            var sort = document.getElementById("select-sort").value;
+            url3 = `https://dummyjson.com/products/search?q=${search}&limit=${limit}&sortBy=price&order=${sort}`;
+            fetch(url3).then(function(rs){
+                    return rs.json();
+                })
+                .then(function(rs){
+                    var products = rs.products;
+                    var list = document.getElementById("list-products");
+                    list.innerHTML = ``;// clear list
+                    for(var p of products){
+                        var p_html = `<div class="col-3 mb-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="${p.thumbnail}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">${p.title}</h5>
+                                <p class="card-text">${p.description}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>`;
+                        list.innerHTML += p_html;
+                    }
+                })
+        }
+        
     </script>
 </body>
 </html>

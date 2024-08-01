@@ -22,17 +22,20 @@
         </div>
     </main>
     <script type="text/javascript">
-        var url = `https://dummyjson.com/products/1`;
-        fetch(url).then(function(rs){
-            return rs.json();
-        })
-        .then(function(rs){
-            console.log(rs);
-            var pimg = document.getElementById("product-img");
-            pimg.src = rs.thumbnail;
-            document.getElementById("product-title").innerText = rs.title
-            document.getElementById("product-desc").innerText = rs.description
-        })
+        function getData(){
+            var url = `https://dummyjson.com/products/1`;
+            fetch(url).then(function(rs){
+                return rs.json();
+            })
+            .then(function(rs){
+              //  console.log(rs);
+                var pimg = document.getElementById("product-img");
+                pimg.src = rs.thumbnail;
+                document.getElementById("product-title").innerText = rs.title
+                document.getElementById("product-desc").innerText = rs.description
+            })
+        }
+        getData();
     </script>
 </body>
 </html>

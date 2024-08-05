@@ -93,7 +93,7 @@
                         <div class="card-body">
                           <h5 class="card-title">${p.title}</h5>
                           <p class="card-text">${p.description}</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="#" onclick="addToCart(${p.id})" class="btn btn-primary">Add to cart</a>
                         </div>
                       </div>
                 </div>`;
@@ -165,6 +165,31 @@
                 })
         }
         
+        async function addToCart(id){
+            const url = `https://dummyjson.com/products/${id}`;
+            var rs = await fetch(url);
+            var data = await rs.json();
+            var product = {
+                id: id,
+                title: data.title,
+                thumbnail: data.thumbnail,
+                price: data.price,
+                buyQty: 1
+            }
+            var cart = localStorage.getItem("cart"); // "[{id:...,title:...}]"
+            if(cart == null){
+                cart= [];
+            }else{
+                cart = JSON.parse(cart);
+            }
+            cart.push(product); // array
+            cart = JSON.stringify(cart);// convert to string
+            localStorage.setItem("cart",cart);
+        }
+        
+      //  localStorage.setItem("demo","ABC123");
+    //   var demo = localStorage.getItem("demo");
+    //   console.log(demo);
     </script>
 </body>
 </html>

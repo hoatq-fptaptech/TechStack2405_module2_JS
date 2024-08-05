@@ -42,7 +42,7 @@
             </div>
             <div class="sidebar col-4">
                 <h2>Order summary</h2>
-                <h3>Grand Total: 10.000</h3>
+                <h3>Grand Total: <span id="grand_total"></span></h3>
             </div>
         </div>
     </div>
@@ -50,6 +50,24 @@
 <script type="text/javascript">
     function cart(){
         var cart = localStorage.getItem("cart");
+        cart = JSON.parse(cart);
+        var list = document.getElementById("cart-list");
+        list.innerHTML = ``;
+        if(cart != null){
+            var grand_total = 0;
+            for(var item of cart){
+                grand_total += item.price * item.buyQty;
+                var item_html = `<tr>
+                            <td><img width="80" src="${item.thumbnail}"/></td>
+                            <td>${item.title}</td>
+                            <td>${item.buyQty}</td>
+                            <td>${item.price}</td>
+                            <td>${item.buyQty * item.price}</td>
+                        </tr>`   ; 
+                list.innerHTML += item_html;        
+            }
+            document.getElementById("grand_total").innerText = grand_total;
+        }
     }
     cart();
 </script>

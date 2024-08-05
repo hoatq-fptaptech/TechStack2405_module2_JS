@@ -1,0 +1,19 @@
+body{
+    background-image: url(../images/weather.jpg);
+    background-size: cover;
+}
+.item{
+    background-color: #00000070;
+    border-radius: 6px;
+    padding: 20px;
+    height: 170px;
+}
+.item p{
+    color: #fff;
+}
+.item h3{
+    color: #fff;
+}
+.item img{
+    transform: translate(150px,-100px);
+}

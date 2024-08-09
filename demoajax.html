@@ -71,7 +71,7 @@
             var menu = document.getElementById("menu"); // list rendering
             for(var item of rs){
                 var item_html = `<li class="item">
-                                    <a href="#">${item}</a>
+                                    <a href="/category.html?id=${item}">${item}</a>
                                 </li>`;
                 menu.innerHTML += item_html;
             }
@@ -94,6 +94,7 @@
                           <h5 class="card-title">${p.title}</h5>
                           <p class="card-text">${p.description}</p>
                           <a href="#" onclick="addToCart(${p.id})" class="btn btn-primary">Add to cart</a>
+                          <a href="/detail.html?id=${p.id}" class="btn btn-outline-primary">Detail</a>
                         </div>
                       </div>
                 </div>`;

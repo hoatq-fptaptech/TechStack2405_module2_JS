@@ -23,7 +23,14 @@
     </main>
     <script type="text/javascript">
         function getData(){
-            var url = `https://dummyjson.com/products/1`;
+            // lấy đc giá trị trên url của web hiện tại
+            const queryString  = window.location.search; // lấy đc string sau domain
+            console.log(queryString);
+            const urlParams = new URLSearchParams(queryString); // chuyển string thành dang object param
+            const id = urlParams.get("id");
+           // console.log(id)
+            // sử dụng giá tri id này đưa vào api bên dưới
+            var url = `https://dummyjson.com/products/${id}`;
             fetch(url).then(function(rs){
                 return rs.json();
             })

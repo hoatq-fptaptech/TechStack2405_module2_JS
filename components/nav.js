@@ -1,4 +1,6 @@
 function NavComponent(){
+    // call api
+    // render data
     return `
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
